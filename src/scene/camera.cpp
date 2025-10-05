@@ -47,6 +47,7 @@ Matrix4f Camera::view()
 
 Matrix4f Camera::projection()
 {
+    /*
     const float fov_y = radians(fov_y_degrees);
     const float top   = (target - position).norm() * std::tan(fov_y / 2.0f);
     const float right = top * aspect_ratio;
@@ -60,6 +61,13 @@ Matrix4f Camera::projection()
     projection(2, 2) = -1.0f / far_plane;
     projection(2, 3) = 0.0f;
     projection(3, 3) = 1.0f;
+    */
+   Matrix4f projection = Matrix4f::Zero();
+   projection(0, 0) = 1.0f / tan(radians(fov_y_degrees) / 2.0f) / aspect_ratio;
+   projection(1, 1) = 1.0f / tan(radians(fov_y_degrees) / 2.0f);
+   projection(2, 2) = -1.0f * (far_plane + near_plane) / (far_plane - near_plane);
+   projection(2, 3) = -2.0f * (far_plane * near_plane) / (far_plane - near_plane);
+   projection(3, 2) = -1.0f;
 
     return projection;
 }

@@ -45,7 +45,44 @@ Object::Object(const string& object_name) :
 
 Matrix4f Object::model()
 {
-    return Matrix4f::Identity();
+    Matrix4f scale = Matrix4f::Identity(); 
+    scale(0, 0)   = scaling.x();
+    scale(1, 1)   = scaling.y();
+    scale(2, 2)   = scaling.z();
+
+    Matrix4f rotatex = Matrix4f::Identity();
+    Matrix4f rotatey = Matrix4f::Identity();
+    Matrix4f rotatez = Matrix4f::Identity();
+
+    const Quaternionf& r = rotation;
+    auto [x_angle, y_angle, z_angle] = quaternion_to_ZYX_euler(r.w(), r.x(),
+    r.y(), r.z());
+    x_angle = radians(x_angle);
+    y_angle = radians(y_angle);
+    z_angle = radians(z_angle);
+
+    rotatex(1, 1) = cos(x_angle);
+    rotatex(1, 2) = -sin(x_angle);
+    rotatex(2, 1) = sin(x_angle);
+    rotatex(2, 2) = cos(x_angle);
+
+    rotatey(0, 0) = cos(y_angle);
+    rotatey(0, 2) = sin(y_angle);
+    rotatey(2, 0) = -sin(y_angle);
+    rotatey(2, 2) = cos(y_angle);
+
+    rotatez(0, 0) = cos(z_angle);
+    rotatez(0, 1) = -sin(z_angle);
+    rotatez(1, 0) = sin(z_angle);
+    rotatez(1, 1) = cos(z_angle);
+
+    Matrix4f translate = Matrix4f::Identity();
+    translate(0, 3)   = center.x();
+    translate(1, 3)   = center.y();
+    translate(2, 3)   = center.z();
+    Matrix4f model = translate * rotatex * rotatey * rotatez * scale;
+
+    return model;
 }
 
 void Object::update(vector<Object*>& all_objects)
