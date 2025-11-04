@@ -1,0 +1,164 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"INSTALL"
+		],
+		"files" : 
+		[
+			"deps/assimp/code/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1622,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1630,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1631,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "libassimp6.0.2-dev",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"deps/assimp/lib/libassimpd.a"
+			],
+			"targetId" : "assimp::@1da08b723468d33f2f45",
+			"targetIndex" : 0,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "assimp-dev",
+			"destination" : "include/assimp",
+			"paths" : 
+			[
+				"deps/assimp/code/../include/assimp/anim.h",
+				"deps/assimp/code/../include/assimp/aabb.h",
+				"deps/assimp/code/../include/assimp/ai_assert.h",
+				"deps/assimp/code/../include/assimp/camera.h",
+				"deps/assimp/code/../include/assimp/color4.h",
+				"deps/assimp/code/../include/assimp/color4.inl",
+				"cmake-build-debug/deps/assimp/code/../include/assimp/config.h",
+				"deps/assimp/code/../include/assimp/ColladaMetaData.h",
+				"deps/assimp/code/../include/assimp/commonMetaData.h",
+				"deps/assimp/code/../include/assimp/defs.h",
+				"deps/assimp/code/../include/assimp/cfileio.h",
+				"deps/assimp/code/../include/assimp/light.h",
+				"deps/assimp/code/../include/assimp/material.h",
+				"deps/assimp/code/../include/assimp/material.inl",
+				"deps/assimp/code/../include/assimp/matrix3x3.h",
+				"deps/assimp/code/../include/assimp/matrix3x3.inl",
+				"deps/assimp/code/../include/assimp/matrix4x4.h",
+				"deps/assimp/code/../include/assimp/matrix4x4.inl",
+				"deps/assimp/code/../include/assimp/mesh.h",
+				"deps/assimp/code/../include/assimp/ObjMaterial.h",
+				"deps/assimp/code/../include/assimp/pbrmaterial.h",
+				"deps/assimp/code/../include/assimp/GltfMaterial.h",
+				"deps/assimp/code/../include/assimp/postprocess.h",
+				"deps/assimp/code/../include/assimp/quaternion.h",
+				"deps/assimp/code/../include/assimp/quaternion.inl",
+				"deps/assimp/code/../include/assimp/scene.h",
+				"deps/assimp/code/../include/assimp/metadata.h",
+				"deps/assimp/code/../include/assimp/texture.h",
+				"deps/assimp/code/../include/assimp/types.h",
+				"deps/assimp/code/../include/assimp/vector2.h",
+				"deps/assimp/code/../include/assimp/vector2.inl",
+				"deps/assimp/code/../include/assimp/vector3.h",
+				"deps/assimp/code/../include/assimp/vector3.inl",
+				"deps/assimp/code/../include/assimp/version.h",
+				"deps/assimp/code/../include/assimp/cimport.h",
+				"deps/assimp/code/../include/assimp/AssertHandler.h",
+				"deps/assimp/code/../include/assimp/importerdesc.h",
+				"deps/assimp/code/../include/assimp/Importer.hpp",
+				"deps/assimp/code/../include/assimp/DefaultLogger.hpp",
+				"deps/assimp/code/../include/assimp/ProgressHandler.hpp",
+				"deps/assimp/code/../include/assimp/IOStream.hpp",
+				"deps/assimp/code/../include/assimp/IOSystem.hpp",
+				"deps/assimp/code/../include/assimp/Logger.hpp",
+				"deps/assimp/code/../include/assimp/LogStream.hpp",
+				"deps/assimp/code/../include/assimp/NullLogger.hpp",
+				"deps/assimp/code/../include/assimp/cexport.h",
+				"deps/assimp/code/../include/assimp/Exporter.hpp",
+				"deps/assimp/code/../include/assimp/DefaultIOStream.h",
+				"deps/assimp/code/../include/assimp/DefaultIOSystem.h",
+				"deps/assimp/code/../include/assimp/ZipArchiveIOSystem.h",
+				"deps/assimp/code/../include/assimp/SceneCombiner.h",
+				"deps/assimp/code/../include/assimp/fast_atof.h",
+				"deps/assimp/code/../include/assimp/qnan.h",
+				"deps/assimp/code/../include/assimp/BaseImporter.h",
+				"deps/assimp/code/../include/assimp/Hash.h",
+				"deps/assimp/code/../include/assimp/MemoryIOWrapper.h",
+				"deps/assimp/code/../include/assimp/ParsingUtils.h",
+				"deps/assimp/code/../include/assimp/StreamReader.h",
+				"deps/assimp/code/../include/assimp/StreamWriter.h",
+				"deps/assimp/code/../include/assimp/StringComparison.h",
+				"deps/assimp/code/../include/assimp/StringUtils.h",
+				"deps/assimp/code/../include/assimp/SGSpatialSort.h",
+				"deps/assimp/code/../include/assimp/GenericProperty.h",
+				"deps/assimp/code/../include/assimp/SpatialSort.h",
+				"deps/assimp/code/../include/assimp/SkeletonMeshBuilder.h",
+				"deps/assimp/code/../include/assimp/SmallVector.h",
+				"deps/assimp/code/../include/assimp/SmoothingGroups.h",
+				"deps/assimp/code/../include/assimp/SmoothingGroups.inl",
+				"deps/assimp/code/../include/assimp/StandardShapes.h",
+				"deps/assimp/code/../include/assimp/RemoveComments.h",
+				"deps/assimp/code/../include/assimp/Subdivision.h",
+				"deps/assimp/code/../include/assimp/Vertex.h",
+				"deps/assimp/code/../include/assimp/LineSplitter.h",
+				"deps/assimp/code/../include/assimp/TinyFormatter.h",
+				"deps/assimp/code/../include/assimp/Profiler.h",
+				"deps/assimp/code/../include/assimp/LogAux.h",
+				"deps/assimp/code/../include/assimp/Bitmap.h",
+				"deps/assimp/code/../include/assimp/XMLTools.h",
+				"deps/assimp/code/../include/assimp/IOStreamBuffer.h",
+				"deps/assimp/code/../include/assimp/CreateAnimMesh.h",
+				"deps/assimp/code/../include/assimp/XmlParser.h",
+				"deps/assimp/code/../include/assimp/BlobIOSystem.h",
+				"deps/assimp/code/../include/assimp/MathFunctions.h",
+				"deps/assimp/code/../include/assimp/Exceptional.h",
+				"deps/assimp/code/../include/assimp/ByteSwapper.h",
+				"deps/assimp/code/../include/assimp/Base64.hpp"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "assimp-dev",
+			"destination" : "include/assimp/Compiler",
+			"paths" : 
+			[
+				"deps/assimp/code/../include/assimp/Compiler/pushpack1.h",
+				"deps/assimp/code/../include/assimp/Compiler/poppack1.h",
+				"deps/assimp/code/../include/assimp/Compiler/pstdint.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "deps/assimp/code",
+		"source" : "deps/assimp/code"
+	}
+}

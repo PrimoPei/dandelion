@@ -1,0 +1,271 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						3,
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "deps/glfw",
+					"childIndexes" : 
+					[
+						2
+					],
+					"jsonFile" : "directory-deps.glfw-Debug-58405cfce05b1b19c816.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "deps/glfw"
+				},
+				{
+					"build" : "deps/glfw/src",
+					"jsonFile" : "directory-deps.glfw.src-Debug-25dda67e9dcc797259b0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "deps/glfw/src",
+					"targetIndexes" : 
+					[
+						3,
+						5
+					]
+				},
+				{
+					"build" : "deps/fmt",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-deps.fmt-Debug-9d11315b460eeb7e590d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "deps/fmt",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "deps/assimp",
+					"childIndexes" : 
+					[
+						5,
+						6
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-deps.assimp-Debug-f8629c2f6a8aef60cc69.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 3,
+					"source" : "deps/assimp",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "deps/assimp/contrib/zlib",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-deps.assimp.contrib.zlib-Debug-94da41ffb0cea75dcd71.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 4,
+					"source" : "deps/assimp/contrib/zlib",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "deps/assimp/code",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-deps.assimp.code-Debug-b02b3820c12b02f12e61.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 3,
+					"source" : "deps/assimp/code",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "dandelion",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1,
+						2
+					],
+					"name" : "GLFW",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "FMT",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						4
+					],
+					"directoryIndexes" : 
+					[
+						4,
+						6
+					],
+					"name" : "Assimp",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "zlib",
+					"parentIndex" : 3,
+					"targetIndexes" : 
+					[
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 6,
+					"id" : "assimp::@1da08b723468d33f2f45",
+					"jsonFile" : "target-assimp-Debug-fe163c293cc2463cb93d.json",
+					"name" : "assimp",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dandelion::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dandelion-Debug-cbb6e3192989e941dfb7.json",
+					"name" : "dandelion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "fmt::@c1a9231e0206e99398e7",
+					"jsonFile" : "target-fmt-Debug-05f43deb285f060207b8.json",
+					"name" : "fmt",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "glfw::@c7b1059c348ca70b25fe",
+					"jsonFile" : "target-glfw-Debug-469e79350025120f39d0.json",
+					"name" : "glfw",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "uninstall::@d9904a003ae4dba7b8a3",
+					"jsonFile" : "target-uninstall-Debug-509b9c2e6d0d66bc8a20.json",
+					"name" : "uninstall",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "update_mappings::@c7b1059c348ca70b25fe",
+					"jsonFile" : "target-update_mappings-Debug-e09198ea69d2368041bb.json",
+					"name" : "update_mappings",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "zlibstatic::@ca1f608b3bbf69a5d196",
+					"jsonFile" : "target-zlibstatic-Debug-43ebdc202681ee7e7e66.json",
+					"name" : "zlibstatic",
+					"projectIndex" : 4
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Coding/CG/dandelion/cmake-build-debug",
+		"source" : "D:/Coding/CG/dandelion"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

@@ -72,8 +72,12 @@ bool Rasterizer::inside_triangle(int x, int y, const Vector4f* vertices)
     for (int i = 0; i < 3; i++) v[i] = {vertices[i].x(), vertices[i].y(), 1.0};
 
     Vector3f p(float(x), float(y), 1.0f);
+    float s1 = sign(p.head<2>(), v[0].head<2>(), v[1].head<2>());
+    float s2 = sign(p.head<2>(), v[1].head<2>(), v[2].head<2>());
+    float s3 = sign(p.head<2>(), v[2].head<2>(), v[0].head<2>());
 
-    return false;
+
+    return (s1 >= 0 && s2 >= 0 && s3 >= 0) || (s1 <= 0 && s2 <= 0 && s3 <= 0);
 }
 
 // 给定坐标(x,y)以及三角形的三个顶点坐标，计算(x,y)对应的重心坐标[alpha, beta, gamma]
@@ -81,12 +85,18 @@ tuple<float, float, float> Rasterizer::compute_barycentric_2d(float x, float y, 
 {
     float c1 = 0.f, c2 = 0.f, c3 = 0.f;
 
-    // these lines below are just for compiling and can be deleted
-    (void)x;
-    (void)y;
-    (void)v;
-    // these lines above are just for compiling and can be deleted
+    Eigen::Vector2f p(x, y);
 
+    float total = sign(v[1].head<2>(), v[2].head<2>(), v[0].head<2>());
+
+    if (std::abs(total) < 1e-9f)
+    {
+        return {1.0f, 0.0f, 0.0f};
+    }
+
+    c1 = sign(v[1].head<2>(), v[2].head<2>(), p) / total;
+    c2 = sign(v[2].head<2>(), v[0].head<2>(), p) / total;
+    c3 = sign(v[0].head<2>(), v[1].head<2>(), p) / total;
     return {c1, c2, c3};
 }
 
@@ -109,15 +119,55 @@ Vector3f Rasterizer::interpolate(
 // 对当前三角形进行光栅化
 void Rasterizer::rasterize_triangle(Triangle& t)
 {
-    // these lines below are just for compiling and can be deleted
-    (void)t;
-    FragmentShaderPayload payload;
-    // these lines above are just for compiling and can be deleted
+    float minx = std::min({t.viewport_pos[0].x(), t.viewport_pos[1].x(), t.viewport_pos[2].x()});
+    float maxx = std::max({t.viewport_pos[0].x(), t.viewport_pos[1].x(), t.viewport_pos[2].x()});
+    float miny = std::min({t.viewport_pos[0].y(), t.viewport_pos[1].y(), t.viewport_pos[2].y()});
+    float maxy = std::max({t.viewport_pos[0].y(), t.viewport_pos[1].y(), t.viewport_pos[2].y()});
 
-    // if current pixel is in current triange:
-    // 1. interpolate depth(use projection correction algorithm)
-    // 2. interpolate vertex positon & normal(use function:interpolate())
-    // 3. push primitive into fragment queue
-    std::unique_lock<std::mutex> lock(Context::rasterizer_queue_mutex);
-    Context::rasterizer_output_queue.push(payload);
+    int x_start = std::max(0, (int)std::floor(minx));
+    int x_end   = std::min(Uniforms::width - 1, (int)std::ceil(maxx));
+    int y_start = std::max(0, (int)std::floor(miny));
+    int y_end   = std::min(Uniforms::height - 1, (int)std::ceil(maxy));
+
+    if (t.viewport_pos[0].w() < 1e-5f ||
+        t.viewport_pos[1].w() < 1e-5f ||
+        t.viewport_pos[2].w() < 1e-5f)
+    {
+        return;
+    }
+
+
+    for (int y = y_start; y <= y_end; y++) {
+        for (int x = x_start; x <= x_end; x++) {
+            // if current pixel is in current triange:
+            if (!inside_triangle(x, y, t.viewport_pos)) {
+                continue;
+            }
+            // 1. interpolate depth(use projection correction algorithm)
+            auto [alpha, beta, gamma] = compute_barycentric_2d(float(x), float(y), t.viewport_pos);
+            float zt = 1.0f / (alpha / t.viewport_pos[0].w() + beta / t.viewport_pos[1].w() + gamma / t.viewport_pos[2].w());
+            float it = (alpha * t.viewport_pos[0].z() / t.viewport_pos[0].w() +
+                                    beta * t.viewport_pos[1].z() / t.viewport_pos[1].w() +
+                                    gamma * t.viewport_pos[2].z() / t.viewport_pos[2].w()) * zt;
+            
+            int index = (Uniforms::height - 1 - y) * Uniforms::width + x; 
+            if (it < Context::frame_buffer.depth_buffer[index]) {
+                Context::frame_buffer.depth_buffer[index] = it;
+
+                // 2. interpolate vertex positon & normal(use function:interpolate())
+                FragmentShaderPayload payload;
+                payload.x = x;
+                payload.y = y;
+                payload.depth = it;
+                Eigen::Vector3f weights(t.viewport_pos[0].w(), t.viewport_pos[1].w(), t.viewport_pos[2].w());
+                payload.world_pos = interpolate(alpha, beta, gamma, t.world_pos[0].head<3>(), t.world_pos[1].head<3>(), t.world_pos[2].head<3>(), weights, zt);
+                payload.world_normal = interpolate(alpha, beta, gamma, t.normal[0], t.normal[1], t.normal[2], weights, zt);
+                payload.world_normal = payload.world_normal.normalized();
+
+                // 3. push primitive into fragment queue
+                std::unique_lock<std::mutex> lock(Context::rasterizer_queue_mutex);
+                Context::rasterizer_output_queue.push(payload);
+            }
+        }
+    }
 }
