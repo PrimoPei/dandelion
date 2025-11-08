@@ -61,6 +61,10 @@ void Menubar::render(Scene& scene)
                     scene.load(result[0].c_str());
                 }
             }
+
+
+
+
             ImGui::EndMenu();
         }
         if (ImGui::BeginMenu("Debug")) {

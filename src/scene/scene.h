@@ -103,6 +103,8 @@ public:
     /*! \~chinese 用于建模模式的半边网格。 */
     std::unique_ptr<HalfedgeMesh> halfedge_mesh;
 
+    void export_sdf(Object *object, const std::string &filename);
+
 private:
 
     /*! \~chinese
@@ -156,6 +158,7 @@ private:
     GL::LineSet arrows;
     /*! \~chinese 日志记录器。 */
     std::shared_ptr<spdlog::logger> logger;
+
 };
 
 #endif // DANDELION_SCENE_SCENE_H

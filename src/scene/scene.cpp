@@ -16,6 +16,7 @@
     #include <Windows.h>
 #endif
 #include <glad/glad.h>
+#include <fstream>
 
 #include "../platform/gl.hpp"
 #include "../utils/math.hpp"
@@ -306,3 +307,4 @@ void Scene::simulation_update()
 
     // 根据刚才模拟时间步的数量，更新最后一次调用 simulation_update 的时间 (last_update)。
 }
+

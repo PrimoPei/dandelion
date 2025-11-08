@@ -211,13 +211,14 @@
 				25,
 				26,
 				27,
-				29,
+				28,
 				30,
 				31,
 				32,
 				33,
 				34,
-				35
+				35,
+				36
 			]
 		},
 		{
@@ -280,7 +281,7 @@
 			"language" : "C",
 			"sourceIndexes" : 
 			[
-				28
+				29
 			]
 		}
 	],
@@ -328,7 +329,7 @@
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "deps\\glfw\\src\\libglfw3.a",
+				"fragment" : "deps\\glfw\\src\\libglfw3d.a",
 				"role" : "libraries"
 			},
 			{
@@ -339,11 +340,6 @@
 			{
 				"backtrace" : 6,
 				"fragment" : "deps\\fmt\\libfmtd.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 6,
-				"fragment" : "-ldandelion-ray-debug",
 				"role" : "libraries"
 			},
 			{
@@ -436,7 +432,8 @@
 				32,
 				33,
 				34,
-				35
+				35,
+				36
 			]
 		}
 	],
@@ -518,6 +515,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/utils/stb_image_wrapper.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/utils/ray.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
