@@ -47,12 +47,25 @@ Vector3f AABB::centroid()
 // 判断当前射线是否与当前AABB相交
 bool AABB::intersect(const Ray& ray, const Vector3f& inv_dir, const std::array<int, 3>& dir_is_neg)
 {
-    // these lines below are just for compiling and can be deleted
-    (void)ray;
-    (void)inv_dir;
-    (void)dir_is_neg;
-    return true;
-    // these lines above are just for compiling and can be deleted
+
+    std::array<Vector3f, 2> bounds = {p_min, p_max};
+
+    float t_min = (bounds[dir_is_neg[0]].x() - ray.origin.x()) * inv_dir.x();
+    float t_max = (bounds[1 - dir_is_neg[0]].x() - ray.origin.x()) * inv_dir.x();
+
+    float t_enter_y = (bounds[dir_is_neg[1]].y() - ray.origin.y()) * inv_dir.y();
+    float t_exit_y  = (bounds[1 - dir_is_neg[1]].y() - ray.origin.y()) * inv_dir.y();
+
+    t_min = std::max(t_min, t_enter_y);
+    t_max = std::min(t_max, t_exit_y);
+
+    float t_enter_z = (bounds[dir_is_neg[2]].z() - ray.origin.z()) * inv_dir.z();
+    float t_exit_z  = (bounds[1 - dir_is_neg[2]].z() - ray.origin.z()) * inv_dir.z();
+
+    t_min = std::max(t_min, t_enter_z);
+    t_max = std::min(t_max, t_exit_z);
+
+    return t_max >= t_min && t_max >= 0;
 }
 
 // 获取当前图元对应AABB

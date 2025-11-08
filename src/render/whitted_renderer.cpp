@@ -53,7 +53,7 @@ void update_progress(float progress)
 }
 
 WhittedRenderer::WhittedRenderer(RenderEngine& engine) :
-    width(engine.width), height(engine.height), n_threads(engine.n_threads), use_bvh(false),
+    width(engine.width), height(engine.height), n_threads(engine.n_threads), use_bvh(true),
     rendering_res(engine.rendering_res)
 {
     logger = get_logger("Whitted Renderer");
@@ -122,10 +122,9 @@ WhittedRenderer::trace(const Ray& ray, const Scene& scene)
     for (const auto& group: scene.groups) {
         for (const auto& object: group->objects) {
             // if use bvh(exercise 2.4): use object->bvh->intersect
-
-
+            auto intersection = object->bvh->intersect(ray, object->mesh, object->model());
             // else(exercise 2.3): use naive_intersect()
-            auto intersection = naive_intersect(ray, object->mesh, object->model());
+//            auto intersection = naive_intersect(ray, object->mesh, object->model());
             if (intersection && intersection->t < min) {
                 min = intersection->t;
                 payload = intersection;
