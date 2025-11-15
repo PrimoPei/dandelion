@@ -166,16 +166,4 @@ optional<Intersection> BVH::ray_node_intersect(BVHNode* node, const Ray& ray) co
     }
     return std::nullopt;
 
-
-
-
-
-
-
-    // 2. 为 AABB::intersect 预计算优化参数
-
-
-    // 3. --- BVH 核心逻辑 ---
-    // (1) 检查射线是否击中当前节点的 AABB (在模型空间)
-
 }
