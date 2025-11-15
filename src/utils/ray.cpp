@@ -65,13 +65,13 @@ optional<Intersection> ray_triangle_intersect(const Ray& ray, const GL::Mesh& me
     Vector3f a = ray.origin - v0;
 
     float u = (a.dot(x)) * inv_det;
-    if (u < 0.0f || u > 1.0f) {
+    if (u < -eps || u > 1.0f+eps) {
         return std::nullopt;
     }
 
     Vector3f y = a.cross(e1);
     float v = (ray.direction.dot(y)) * inv_det;
-    if (v < 0.0f || u + v > 1.0f) {
+    if (v < -eps || u + v > 1.0f+eps) {
         return std::nullopt;
     }
 

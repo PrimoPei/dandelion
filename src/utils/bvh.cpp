@@ -162,7 +162,6 @@ optional<Intersection> BVH::ray_node_intersect(BVHNode* node, const Ray& ray) co
         return hit_l;
     }
     if (hit_r.has_value()) {
-        // 只命中了右边
         return hit_r;
     }
     return std::nullopt;

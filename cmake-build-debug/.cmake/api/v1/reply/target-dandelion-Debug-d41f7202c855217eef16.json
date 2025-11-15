@@ -212,13 +212,15 @@
 				26,
 				27,
 				28,
+				29,
 				30,
-				31,
 				32,
 				33,
 				34,
 				35,
-				36
+				36,
+				37,
+				38
 			]
 		},
 		{
@@ -281,7 +283,7 @@
 			"language" : "C",
 			"sourceIndexes" : 
 			[
-				29
+				31
 			]
 		}
 	],
@@ -340,11 +342,6 @@
 			{
 				"backtrace" : 6,
 				"fragment" : "deps\\fmt\\libfmtd.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 6,
-				"fragment" : "-ldandelion-bvh-debug",
 				"role" : "libraries"
 			},
 			{
@@ -433,7 +430,9 @@
 				33,
 				34,
 				35,
-				36
+				36,
+				37,
+				38
 			]
 		}
 	],
@@ -521,6 +520,18 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/utils/ray.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/utils/aabb.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/utils/bvh.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

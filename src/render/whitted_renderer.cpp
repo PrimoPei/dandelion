@@ -162,11 +162,11 @@ Vector3f WhittedRenderer::cast_ray(const Ray& ray, const Scene& scene, int depth
         // 1.judge the material_type
         if (material.shininess > 1000) { // 2.if REFLECTION:
             // (1) use fresnel() to get kr
-            float kr = fresnel(ray.direction, norm, 1.5f);
+            float kr = fresnel(ray.direction, norm, 2.5f);
 
             // (2) hitcolor = cast_ray*kr
             Vector3f reflect_dir = reflect(ray.direction, norm).normalized();
-            Ray reflect_ray(world_pos + norm * EPSILON, reflect_dir);
+            Ray reflect_ray(world_pos + norm*0.001, reflect_dir);
 
             hitcolor = cast_ray(reflect_ray, scene, depth + 1) * kr;
         }
@@ -179,7 +179,7 @@ Vector3f WhittedRenderer::cast_ray(const Ray& ray, const Scene& scene, int depth
                 float light_dis = light_dir.norm();
                 light_dir = light_dir.normalized();
 
-                Ray shadow_ray(world_pos + norm * EPSILON, light_dir);
+                Ray shadow_ray(world_pos + norm * 0.001, light_dir);
                 auto shadow = trace(shadow_ray, scene);
                 bool is_shadow = false;
 

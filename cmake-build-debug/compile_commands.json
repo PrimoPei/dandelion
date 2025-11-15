@@ -85,6 +85,18 @@
 },
 {
   "directory": "D:/Coding/CG/dandelion/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.6\\bin\\mingw\\bin\\G__~1.EXE -DDEBUG -DSPDLOG_FMT_EXTERNAL -ID:/Coding/CG/dandelion/deps -ID:/Coding/CG/dandelion/deps/glad/include -ID:/Coding/CG/dandelion/deps/glfw/include -ID:/Coding/CG/dandelion/deps/assimp/code/../include -ID:/Coding/CG/dandelion/cmake-build-debug/deps/assimp/code/../include -ID:/Coding/CG/dandelion/deps/fmt/include -g -std=gnu++20 -fdiagnostics-color=always -Wall -Wextra -Werror -Wno-maybe-uninitialized -o CMakeFiles\\dandelion.dir\\src\\utils\\aabb.cpp.obj -c D:\\Coding\\CG\\dandelion\\src\\utils\\aabb.cpp",
+  "file": "D:\\Coding\\CG\\dandelion\\src\\utils\\aabb.cpp",
+  "output": "CMakeFiles\\dandelion.dir\\src\\utils\\aabb.cpp.obj"
+},
+{
+  "directory": "D:/Coding/CG/dandelion/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.6\\bin\\mingw\\bin\\G__~1.EXE -DDEBUG -DSPDLOG_FMT_EXTERNAL -ID:/Coding/CG/dandelion/deps -ID:/Coding/CG/dandelion/deps/glad/include -ID:/Coding/CG/dandelion/deps/glfw/include -ID:/Coding/CG/dandelion/deps/assimp/code/../include -ID:/Coding/CG/dandelion/cmake-build-debug/deps/assimp/code/../include -ID:/Coding/CG/dandelion/deps/fmt/include -g -std=gnu++20 -fdiagnostics-color=always -Wall -Wextra -Werror -Wno-maybe-uninitialized -o CMakeFiles\\dandelion.dir\\src\\utils\\bvh.cpp.obj -c D:\\Coding\\CG\\dandelion\\src\\utils\\bvh.cpp",
+  "file": "D:\\Coding\\CG\\dandelion\\src\\utils\\bvh.cpp",
+  "output": "CMakeFiles\\dandelion.dir\\src\\utils\\bvh.cpp.obj"
+},
+{
+  "directory": "D:/Coding/CG/dandelion/cmake-build-debug",
   "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.6\\bin\\mingw\\bin\\G__~1.EXE -DDEBUG -DSPDLOG_FMT_EXTERNAL -ID:/Coding/CG/dandelion/deps -ID:/Coding/CG/dandelion/deps/glad/include -ID:/Coding/CG/dandelion/deps/glfw/include -ID:/Coding/CG/dandelion/deps/assimp/code/../include -ID:/Coding/CG/dandelion/cmake-build-debug/deps/assimp/code/../include -ID:/Coding/CG/dandelion/deps/fmt/include -g -std=gnu++20 -fdiagnostics-color=always -Wall -Wextra -Werror -Wno-maybe-uninitialized -o CMakeFiles\\dandelion.dir\\src\\utils\\kinetic_state.cpp.obj -c D:\\Coding\\CG\\dandelion\\src\\utils\\kinetic_state.cpp",
   "file": "D:\\Coding\\CG\\dandelion\\src\\utils\\kinetic_state.cpp",
   "output": "CMakeFiles\\dandelion.dir\\src\\utils\\kinetic_state.cpp.obj"
